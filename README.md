@@ -7,7 +7,7 @@ The dag file includes two jobs: filtering and merging. the dag files are generat
 
 People can either send the dag by
 ```
-  condor_submit dag female.dag
+  condor_submit_dag female.dag
 ```
 or use the "filter.sub" or "merge.sub" in the "scripts" folder directly by
 ```
