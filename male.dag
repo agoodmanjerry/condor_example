@@ -1,0 +1,17 @@
+JOB filter_0 filter.sub
+RETRY filter_0 0
+VARS filter_0 org_data="./org_data/data_1.csv" gender="male"
+
+JOB filter_1 filter.sub
+RETRY filter_1 0
+VARS filter_1 org_data="./org_data/data_2.csv" gender="male"
+
+JOB filter_2 filter.sub
+RETRY filter_2 0
+VARS filter_2 org_data="./org_data/data_3.csv" gender="male"
+
+JOB merge merge.sub
+RETRY merge 0
+VARS merge filtered_data="./filtered_data/male-data_1.csv ./filtered_data/male-data_2.csv ./filtered_data/male-data_3.csv" merge_output="all_male.csv"
+
+PARENT filter_0 filter_1 filter_2 CHILD merge
